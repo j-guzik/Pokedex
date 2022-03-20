@@ -3,9 +3,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { CircularProgress } from "@material-ui/core";
 
-function PokemonInfo(pokeId) {
+function PokemonInfo({pokeId}) {
 
-  const [pokemon, setPokemon] = useState();
+  const [pokemon, setPokemon] = useState(undefined);
 
   useEffect(() => {
     axios
@@ -51,6 +51,9 @@ function PokemonInfo(pokeId) {
     <>
       {pokemon === undefined && <CircularProgress />}
       {pokemon !== undefined && pokemon && generatePokemon(pokemon)}
+      {pokemon === false && <div> Pokemon not found</div>}
+
+  
     </>
   );
 }

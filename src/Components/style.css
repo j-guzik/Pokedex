@@ -1,0 +1,164 @@
+body {
+  background-color: #80808033;
+}
+
+div.container {
+  width: 75vw;
+  position: relative;
+}
+
+header h3 {
+  margin: 40px 0 10px;
+  background: white;
+}
+
+.table {
+  background-color: white;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  --bs-table-accent-bg: none;
+}
+
+.pokemon-row {
+  height: 117px;
+}
+
+.pokemon-row:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+
+.table-bordered > :not(caption) > * {
+  border-width: 5px 0;
+}
+
+.th-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+td, th:nth-child(1), th:nth-last-child(1){
+    text-align: center; 
+    vertical-align: middle;
+}
+
+
+
+.buttons {
+  height: 65px;
+}
+
+.button-nav {
+  background-color: #000000d1;
+  position: absolute;
+  color: white;
+  margin-top: -7px;
+  padding: 5px 20px 8px;
+  border: none;
+  width: 100px;
+}
+
+.next {
+  right: 0;
+  margin-right: 13px;
+}
+
+.previous {
+  left: 0;
+  margin-left: 13px;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+input:focus-visible {
+  outline: none;
+  border-bottom: 1px solid black;
+}
+
+th:nth-last-child(1),
+th:nth-child(1) {
+  padding-bottom: 10px;
+}
+
+img {
+  -webkit-animation: appear 1s;
+  animation: appear 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  @-webkit-keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.ReactModal__Content.ReactModal__Content--after-open {
+  inset: 125px !important;
+  height: 55vh;
+  width: 75vw;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  border: none;
+  background: white;
+  padding: 0;
+}
+
+.pokemon-row td:nth-last-child(1) {
+  width: 139px;
+}
+
+.pokemon-row td:nth-last-child(1) img {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1.5s;
+  position: relative;
+  right: 0;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+    right: -135px;
+    top: 0;
+  }
+  50% {
+    opacity: 0;
+    right: -40px;
+  }
+  75%{
+      top: -18px;
+  }
+  100% {
+    opacity: 1;
+    right: 0;
+    top: 0;
+  }
+}
+
+.pokemon-row td:nth-last-child(1) img {
+  margin-left: 14px;
+}
