@@ -14,6 +14,7 @@ function Main(pokeId) {
   const [offset, setOffset] = useState(0);
   const [filterName, setFilterName] = useState("");
   const [filterType, setFilterType] = useState("");
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     axios
@@ -36,9 +37,23 @@ function Main(pokeId) {
       });
   }, [offset]);
 
+  // const getType = (pokeId) => {
+  //   axios
+  //     .get(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
+  //     .then(function (response) {
+  //       const { data } = response;
+  //       const { results } = data;
+  //       const type = [];
+  //       results => {
+  //         type = pokemon.types.map((poke) => poke.type.name)
+  //       }
+  //     });
+  //   setType(type);
+  // };
+
   const getPokemon = (pokeId) => {
     console.log(pokeData[`${pokeId}`]);
-    const { id, name, sprite, type } = pokeData[pokeId];
+    const { id, name, sprite } = pokeData[pokeId];
 
     return (
       <tr
@@ -51,9 +66,9 @@ function Main(pokeId) {
       >
         <td>{id}</td>
         <td>{name}</td>
-        <td>{type}</td>
+        <td></td>
         <td>
-        <img src={sprite}></img>
+          <img src={sprite}></img>
         </td>
       </tr>
     );
@@ -68,7 +83,7 @@ function Main(pokeId) {
   };
 
   return (
-    <div className="Main">
+   
       <div className="container">
         <Modal isOpen={modalIsOpen} ariaHideApp={false}>
           <div>
@@ -78,6 +93,7 @@ function Main(pokeId) {
             </button>
           </div>
         </Modal>
+
         <header>
           <h3 className="p-3 text-center">List of pokemons</h3>
         </header>
@@ -144,7 +160,7 @@ function Main(pokeId) {
           )}
         </div>
       </div>
-    </div>
+ 
   );
 }
 
