@@ -1,6 +1,4 @@
 import Main from "./Components/Main";
-import "./Components/style.css";
-import AnimatedBg from "react-animated-bg";
 import useDarkMode from "./styles/useDarkMode";
 import styled, { ThemeProvider } from "styled-components";
 import Toogle from "./Components/Toogle";
