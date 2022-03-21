@@ -13,8 +13,6 @@ function Main(pokeId) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [offset, setOffset] = useState(0);
   const [filterName, setFilterName] = useState("");
-  const [filterType, setFilterType] = useState("");
-  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     axios
@@ -30,26 +28,11 @@ function Main(pokeId) {
             sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
               index + offset + 1
             }.png`,
-            // type: pokemon.types.map((poke) => poke.type.name),
           };
         });
         setPokeData(newPokeData);
       });
   }, [offset]);
-
-  // const getType = (pokeId) => {
-  //   axios
-  //     .get(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
-  //     .then(function (response) {
-  //       const { data } = response;
-  //       const { results } = data;
-  //       const type = [];
-  //       results => {
-  //         type = pokemon.types.map((poke) => poke.type.name)
-  //       }
-  //     });
-  //   setType(type);
-  // };
 
   const getPokemon = (pokeId) => {
     console.log(pokeData[`${pokeId}`]);
@@ -65,25 +48,20 @@ function Main(pokeId) {
         className="pokemon-row"
       >
         <td>{id}</td>
-        <td>{name}</td>
-        <td></td>
+        <td className="text-capitalize">{name}</td>
         <td>
-          <img src={sprite}></img>
+          <img src={sprite} alt="sprite" />
         </td>
       </tr>
     );
   };
-
+  
   const handleSearchChangeName = (e) => {
-    setFilterName(e.target.value);
-  };
-
-  const handleSearchChangeType = (e) => {
-    setFilterType(e.target.value);
+    setFilterName(e.target.value.toLowerCase());
   };
 
   return (
-    <div className="container">
+    <div className="container main-container">
       <Modal isOpen={modalIsOpen} ariaHideApp={false}>
         <div>
           <PokemonInfo pokeId={pokeDex} />
@@ -105,15 +83,6 @@ function Main(pokeId) {
                 Name
                 <span className="search">
                   <input onChange={handleSearchChangeName}></input>
-                  <SearchIcon />
-                </span>
-              </div>
-            </th>
-            <th>
-              <div className="th-container">
-                Type{" "}
-                <span className="search">
-                  <input onChange={handleSearchChangeType}></input>
                   <SearchIcon />
                 </span>
               </div>

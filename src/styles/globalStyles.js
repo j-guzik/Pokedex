@@ -71,8 +71,56 @@ body {
     -webkit-box-shadow: 1px 2px 24px -11px rgba(66, 68, 90, 1);
     -moz-box-shadow: 1px 2px 24px -11px rgba(66, 68, 90, 1);
     box-shadow: 1px 2px 24px -11px rgba(66, 68, 90, 1); 
-    inset: 125px !important;
-    height: 45vh;
+    height: 325px;
+    width: 430px;
+    left: 50%!important;
+    top: 50%!important;
+    transform: translate(-50%, -85%);
+  }
+
+  .flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+    height: 155px;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+
+  .info-container .row{
+    margin-top: 15px;
+  }
+
+  .size{
+    font-weight: 500;
+  }
+
+  .info-img{
+    filter: saturate(150%) contrast(122%) hue-rotate(8deg) drop-shadow(1px 12px 10px rgba(0, 0, 0, 0.3));
+    width: 155px;
+    cursor: pointer;
   }
 
   .close{
@@ -84,7 +132,7 @@ body {
     padding: 0;
   }
 
-  div.container {
+  div.container.main-container {
     width: 75vw;
     position: relative;
   }
@@ -216,21 +264,26 @@ body {
     left: 45%;
   }
 
+
+  .info-container .container{
+    width: initial;
+  }
+
   @media only screen and (min-width: 768px) {
-    .container{
+    .container.main-container{
         max-width: inherit;
     }
   }
 
   @media only screen and (min-width: 576px) {
-    .container{
+    .container.main-container{
         max-width: inherit;
     }
   }
 
   
   @media only screen and (max-width: 982px) {
-    .container{
+    .container.main-container{
         width: 100vw!important;
         padding-top: 60px;
     }
