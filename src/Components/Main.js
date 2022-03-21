@@ -83,84 +83,82 @@ function Main(pokeId) {
   };
 
   return (
-   
-      <div className="container">
-        <Modal isOpen={modalIsOpen} ariaHideApp={false}>
-          <div>
-            <PokemonInfo data={pokeDex} />
-            <button className="close" onClick={() => setModalIsOpen(false)}>
-              <CloseIcon />
-            </button>
-          </div>
-        </Modal>
-
-        <header>
-          <h3 className="p-3 text-center">List of pokemons</h3>
-        </header>
-        <table className="table table-striped table-bordered">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>
-                <div className="th-container">
-                  Name
-                  <span className="search">
-                    <input onChange={handleSearchChangeName}></input>
-                    <SearchIcon />
-                  </span>
-                </div>
-              </th>
-              <th>
-                <div className="th-container">
-                  Type{" "}
-                  <span className="search">
-                    <input onChange={handleSearchChangeType}></input>
-                    <SearchIcon />
-                  </span>
-                </div>
-              </th>
-              <th>Sprite</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {pokeData ? (
-              <>
-                {Object.keys(pokeData).map(
-                  (pokeId) =>
-                    pokeData[pokeId].name.includes(filterName) &&
-                    getPokemon(pokeId)
-                )}
-              </>
-            ) : (
-              <CircularProgress />
-            )}
-          </tbody>
-        </table>
-        <div className="buttons">
-          {offset >= 20 && (
-            <button
-              onClick={() => {
-                setOffset(offset - 20);
-              }}
-              className="previous button-nav"
-            >
-              Previous
-            </button>
-          )}
-          {offset <= 1110 && (
-            <button
-              onClick={() => {
-                setOffset(offset + 20);
-              }}
-              className="next button-nav"
-            >
-              Next
-            </button>
-          )}
+    <div className="container">
+      <Modal isOpen={modalIsOpen} ariaHideApp={false}>
+        <div>
+          <PokemonInfo pokeId={pokeDex} />
+          <button className="close" onClick={() => setModalIsOpen(false)}>
+            <CloseIcon />
+          </button>
         </div>
+      </Modal>
+
+      <header>
+        <h3 className="p-3 text-center">List of pokemons</h3>
+      </header>
+      <table className="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>
+              <div className="th-container">
+                Name
+                <span className="search">
+                  <input onChange={handleSearchChangeName}></input>
+                  <SearchIcon />
+                </span>
+              </div>
+            </th>
+            <th>
+              <div className="th-container">
+                Type{" "}
+                <span className="search">
+                  <input onChange={handleSearchChangeType}></input>
+                  <SearchIcon />
+                </span>
+              </div>
+            </th>
+            <th>Sprite</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {pokeData ? (
+            <>
+              {Object.keys(pokeData).map(
+                (pokeId) =>
+                  pokeData[pokeId].name.includes(filterName) &&
+                  getPokemon(pokeId)
+              )}
+            </>
+          ) : (
+            <CircularProgress />
+          )}
+        </tbody>
+      </table>
+      <div className="buttons">
+        {offset >= 20 && (
+          <button
+            onClick={() => {
+              setOffset(offset - 20);
+            }}
+            className="previous button-nav"
+          >
+            Previous
+          </button>
+        )}
+        {offset <= 1110 && (
+          <button
+            onClick={() => {
+              setOffset(offset + 20);
+            }}
+            className="next button-nav"
+          >
+            Next
+          </button>
+        )}
       </div>
- 
+    </div>
   );
 }
 

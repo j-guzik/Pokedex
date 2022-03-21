@@ -1,10 +1,8 @@
 import Main from "./Components/Main";
 import useDarkMode from "./styles/useDarkMode";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import Toogle from "./Components/Toogle";
 import { GlobalStyles, lightTheme, darkTheme } from "./styles/globalStyles";
-
-
 
 function App() {
   const [theme, toogleTheme] = useDarkMode();
@@ -12,11 +10,9 @@ function App() {
 
   return (
     <ThemeProvider theme={themeMode}>
-    
-        <GlobalStyles />
-        <Toogle theme={theme} toogleTheme={toogleTheme} />
-        <Main />
-    
+      <GlobalStyles />
+      <Toogle theme={theme} toogleTheme={toogleTheme} />
+      <Main />
     </ThemeProvider>
   );
 }

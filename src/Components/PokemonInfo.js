@@ -3,9 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { CircularProgress } from "@material-ui/core";
 
-function PokemonInfo({pokeId}) {
-
-  const [pokemon, setPokemon] = useState(undefined);
+function PokemonInfo({ pokeId }) {
+  const [pokemon, setPokemon] = useState();
 
   useEffect(() => {
     axios
@@ -23,8 +22,14 @@ function PokemonInfo({pokeId}) {
     const { name, id, height, weight, sprites } = pokemon;
     const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
     const { front_default } = sprites;
+    const { back_default} = sprites;
     return (
       <>
+      <h1>{name}</h1>
+      <img src={front_default} />
+      <img src={back_default} />
+      <div>Height: {height} </div>
+        <div>Weight: {weight} </div>
         {/* <Typography variant="h1">
           {`${id}.`} {toFirstCharUppercase(name)}
           <img src={front_default} />
@@ -51,9 +56,7 @@ function PokemonInfo({pokeId}) {
     <>
       {pokemon === undefined && <CircularProgress />}
       {pokemon !== undefined && pokemon && generatePokemon(pokemon)}
-      {pokemon === false && <div> Pokemon not found</div>}
-
-  
+      {pokemon === false && <div>Pokemon not found.</div>}
     </>
   );
 }

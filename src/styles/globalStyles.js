@@ -208,6 +208,14 @@ body {
       z-index: 888;
   }
 
+  .ReactModalPortal .MuiCircularProgress-colorPrimary{
+    width: 55px!important;
+    height: 55px!important;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+  }
+
   @media only screen and (min-width: 768px) {
     .container{
         max-width: inherit;
