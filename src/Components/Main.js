@@ -55,7 +55,7 @@ function Main(pokeId) {
       </tr>
     );
   };
-  
+
   const handleSearchChangeName = (e) => {
     setFilterName(e.target.value.toLowerCase());
   };

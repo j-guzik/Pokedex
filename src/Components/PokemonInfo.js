@@ -40,7 +40,7 @@ function PokemonInfo({ pokeId }) {
         backgroundColor = "#729f3f";
         break;
       case "normal":
-        backgroundColor = "#a4acaf";
+        backgroundColor = "#989898";
         break;
       case "electric":
         backgroundColor = "#eed535";
@@ -121,10 +121,10 @@ function PokemonInfo({ pokeId }) {
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
-                    <img className="info-img" src={front_default} alt="front"/>
+                    <img className="info-img" src={front_default} alt="front" />
                   </div>
                   <div class="flip-card-back">
-                    <img className="info-img" src={back_default} alt="back"/>
+                    <img className="info-img" src={back_default} alt="back" />
                   </div>
                 </div>
               </div>
