@@ -35,7 +35,6 @@ function Main(pokeId) {
   }, [offset]);
 
   const getPokemon = (pokeId) => {
-    console.log(pokeData[`${pokeId}`]);
     const { id, name, sprite } = pokeData[pokeId];
 
     return (

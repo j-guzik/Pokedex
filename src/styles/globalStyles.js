@@ -247,6 +247,14 @@ body {
       top: 0;
     }
   }
+
+  th:nth-child(1), td:nth-child(1){
+    border-left: none;
+  }
+
+  th:nth-last-child(1), td:nth-last-child(1){
+    border-right: none;
+  }
   
   .pokemon-row td:nth-last-child(1) img {
     margin-left: 14px;
@@ -295,7 +303,7 @@ body {
     }
 
     .previous{
-        bottom: -7px;
+        bottom: -10px;
     }
   }
 `;
